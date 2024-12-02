@@ -119,16 +119,17 @@ $$ P_\text{per} = N - (1 - N) \times (1-r) $$
 - Scale Out: 計算資源を増やすこと，低コスト
 
 ### Memory Hierarchy
-- **Memory Principle**: Small, Fast, Expensive $ \rightarrow $ Large, Slow, Cheap
+- **Memory Principle**: Small, Fast, Expensive $\rightarrow$ Large, Slow, Cheap
     - レジスタ(数KB, ns以下) 
-    - $ \rightarrow $ L1キャッシュ(数十KB, 数ns) 
-    - $ \rightarrow $ L2キャッシュ(数十MB, 数十ns) 
+    - $\rightarrow$ L1キャッシュ(数十KB, 数ns) 
+    - $\rightarrow$ L2キャッシュ(数十MB, 数十ns) 
     - ...
-    - $ \rightarrow $ DRAM(数十GB, 数百ns)
-    - $ \rightarrow $ ストレージ(数TB, 数ms) 
+    - $\rightarrow$ DRAM(数十GB, 数百ns)
+    - $\rightarrow$ ストレージ(数TB, 数ms) 
 
 ### Roofline Model
 - 視覚的に性能ボトルネックを把握するためのモデル
+
 $$ \text{Performance} = \min \left( \text{Memory-bound}, \text{Compute-bound} \right) $$
 
 - X軸: 算術強度(Arithmetic Intensity) [FLOP/Byte]
@@ -160,6 +161,7 @@ $$ \text{Performance} = \min \left( \text{Memory-bound}, \text{Compute-bound} \r
 - 1つの命令を複数のステージに分割して同時に実行
 - 性能向上
     - $n$: ステージ数， $N$: 入力データ数
+    
 $$ P_\text{pipe}(N) 
 = \frac{T_\text{orig}}{T_\text{pipe}(N)} 
 = \frac{ n N }{n + N -1} 
