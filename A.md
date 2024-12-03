@@ -118,14 +118,50 @@
 ### 2.4.1 Infexibility
 
 - Systolic Arrayは，特定のWorkloadに対しては，効率が低下する
-- e.g., FC Layer
+- e.g., FC Layer🥰
     - 行列積演算なので，2D Sysolic Arrayに直接マッピング可能
-- e.g., CONV Layer
+
+![Tiling](image-2.png)
+
+- e.g., CONV Layer🥰
     - 直接はマッピングできないが，im2colを用いて，CONV Layerを行列積に変換することで，Systolic Arrayにマッピング可能
 
+![im2col](image-3.png)
 
+- e.g., Depthwise Convolution🥲
+    - 入力のChannelごとにfilter を持ち独立して畳み込み
+    - 行列ベクトル積となり，多くのPEがアイドル状態，性能が著しく低下
 
+![DWConv](image-4.png)
 
+- e.g., Delited Convolution, Inverse Convolution🥲
+    - ゼロ要素が多く，無駄な計算が増える
+- e.g., Batch Normalization, Softmax, Activation Function🥲
+
+- 一つの解決策として，Systolic Array とホストでうまく分業する…？
+    - 一般的なプロセッサは，DNNの計算が非効率的であり🥲
+    - ホストが計算を完了するまで，シストリックアレイはアイドル状態🥲
+
+### 2.4.2 DNN sparsity 
+- 近年，DNNのスパース性（疎性）は研究のホットトピック
+- 重みや活性化行列（またはテンソル）の多くの要素がPruining可能
+- Systric Arrayは，密な行列やテンソルの計算にのみ対応
+    - スパース行列やテンソルをゼロ要素で埋めてできなくはないが
+    - スパース性を利用して高速化することは難しい
+
+### Complex Design Space
+- DNNの発展は早いので，迅速な対応が必要
+- しかし，Systolic Arrayの設計は容易ではない
+    - Systemic Arrayの設計空間には多くのパラメータや要因が関係している．
+    - 相当の知識と経験，時間とコストが必要
+- また，Application も多様
+    - e.g., Training 高いスループットとPEの利用率が重要
+    - e.g., Inference 低遅延が重要
+    - e.g., Mobile/Embedded Platform 面積と消費電力の厳しい制約
+    - これらに対応できる汎用性が求められる
+- そこで，自動化が重要
+    - e.g., 自動化設計ツール：異なるプラットフォーム向けに特定のアプリケーションに最適化されたシストリックアレイ設計を自動的に生成する 
+    - e.g., 評価ツール：設計者がシストリックアレイ設計の性能，エネルギー消費，面積，その他の指標を理解しやすくするためのツールや戦略
 
 # 3. OPTIMIZATION FOR FLEXIBILITY
 
