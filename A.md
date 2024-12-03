@@ -19,12 +19,11 @@
     - e.g., Cloud Server, Mobile DeviceといったApplication 固有の性能・コスト要求に応じたアーキテクチャの設計
 - ということで，本論文では，Systolic Array-based DNN Acceleratorsについて調べるよ
 
-## Table of Contents
-2. [BACKGROUND](background): Systolic Arrayの概要と設計上の課題
-3. [OPTIMIZATION FOR FLEXIBILITY](): Systolic Arrayの柔軟性向上の研究
-4. [OPTIMIZATION FOR SPARSITY](): DNNのスパース性への対応と最適化に関する研究
-5. [DESIGN AUTOMATION AND EVALUATION STRATEGY](): 自動合成，性能Emulation，ツール等
-6. [CONCLUSION AND FUTURE DIRECTIONS](): まとめと将来の研究動向
+2. [BACKGROUND](#2-background): Systolic Arrayの概要と設計上の課題
+3. [OPTIMIZATION FOR FLEXIBILITY](#3-optimization-for-flexibility): Systolic Arrayの柔軟性向上の研究
+4. [OPTIMIZATION FOR SPARSITY](#4-optimization-for-sparsity): DNNのスパース性への対応と最適化に関する研究
+5. [DESIGN AUTOMATION AND EVALUATION STRATEGY](#5-design-automation-and-evaluation-strategy): 自動合成，性能Emulation，ツール等
+6. [CONCLUSION AND FUTURE DIRECTIONS](#6-conclusion-and-future-directions): まとめと将来の研究動向
 
 # 2. BACKGROUND
 
