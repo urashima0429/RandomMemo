@@ -164,7 +164,25 @@
 
 # 3. OPTIMIZATION FOR FLEXIBILITY
 
+## 3.1 Overview
+柔軟性の問題に対するアプローチは，以下の3つのカテゴリに分類できる：
+- Hardware-aware Software Design
+    - AlgorithmをSystolic Array向けに最適化することで対応
+- Architecture-based Approach
+    - Systolic Arrayのアーキテクチャで何とかして対応
+- Platform Integration Approach: 
+    - ???
+
+## 3.2 Hardware-aware Software Design
+
+## 3.3 Architectural Techniques
+
+## 3.4 Platform Integration
+
 # 4. OPTIMIZATION FOR SPARSITY
+
+## 4.1 Overview
+
 
 # 5. DESIGN AUTOMATION AND EVALUATION STRATEGY
 
